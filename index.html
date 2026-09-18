@@ -47,30 +47,12 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
   <h1 class="visually-hidden">あなたの「いつも」を支えたい ― 大阪市淀川区の訪問看護ステーション まめ</h1>
-  <!-- PC: 完成バナー画像 -->
+  <!-- 画面幅で自動切替: 〜600px=スマホ用 / 601〜1024px=タブレット用 / 1025px〜=PC用 -->
   <picture class="hero__pic">
+    <source media="(max-width: 600px)" srcset="assets/img/hero-sp.jpg" width="941" height="1672">
+    <source media="(max-width: 1024px)" srcset="assets/img/hero-tab.jpg" width="1554" height="1012">
     <img src="assets/img/hero.jpg" alt="あなたの「いつも」を支えたい。ご自宅で安心して過ごせるように、看護師がご自宅に訪問します。精神科・パーキンソン病などの難病も、お気軽にご相談ください。まめ訪問看護ステーション" class="hero__img" width="1899" height="828" fetchpriority="high">
   </picture>
-
-  <!-- SP: 縦型ヒーロー（空・葉・雲・街並み） -->
-  <div class="hero-sp" aria-hidden="true">
-    <img src="assets/img/sp-leaf-l.png" alt="" class="hero-sp__leaf hero-sp__leaf--l" width="200" height="250">
-    <img src="assets/img/sp-leaf-r.png" alt="" class="hero-sp__leaf hero-sp__leaf--r" width="299" height="175">
-    <span class="hero-sp__cloud hero-sp__cloud--a"></span>
-    <span class="hero-sp__cloud hero-sp__cloud--b"></span>
-    <div class="hero-sp__main">
-      <span class="hero-sp__bubble"></span>
-      <span class="hero-sp__bump hero-sp__bump--1"></span>
-      <span class="hero-sp__bump hero-sp__bump--2"></span>
-      <div class="hero-sp__content">
-        <img src="assets/img/logo-full.png" alt="" class="hero-sp__logo" width="1338" height="1856">
-        <p class="hero-sp__tag"><span>大阪市淀川区</span>の訪問看護ステーション</p>
-        <p class="hero-sp__title"><span class="nw">あなたの<em>「いつも」</em>を</span><br>支えたい</p>
-        <p class="hero-sp__lead">ご自宅で安心して過ごせるように、<br>看護師がご自宅に訪問します。</p>
-      </div>
-    </div>
-    <img src="assets/img/sp-town.jpg" alt="" class="hero-sp__town" width="900" height="280">
-  </div>
 </section>
 
 <!-- ===== 導入帯（バッジ＋難病帯＋NEWS） ===== -->
