@@ -122,6 +122,8 @@ svg { display: block; }
 .hero { position: relative; background: #EAF7E3; padding: 0; }
 .hero__pic { display: block; line-height: 0; }
 .hero__img { width: 100%; height: auto; display: block; }
+/* SP専用ヒーロー（PCでは非表示） */
+.hero-sp { display: none; }
 
 /* ---------- 導入帯（ヒーロー直下: バッジ／難病帯／NEWS） ---------- */
 .intro-band {
@@ -142,6 +144,41 @@ svg { display: block; }
   background: #fff; border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 .intro-band > * { position: relative; z-index: 1; }
+
+
+/* ---------- SP ヒーロー（768px以下で切替: ゆずき風の縦型） ---------- */
+@media (max-width: 768px) {
+  .hero__pic { display: none; }
+  .hero-sp { display: block; position: relative; overflow: hidden; background: linear-gradient(180deg, #BAECFD 0%, #D2F2FD 45%, #E8F8FD 100%); padding: 0; }
+  .hero-sp__leaf { position: absolute; top: 0; z-index: 1; height: auto; pointer-events: none; }
+  .hero-sp__leaf--l { left: 0; width: min(34%, 190px); }
+  .hero-sp__leaf--r { right: 0; width: min(52%, 280px); }
+  .hero-sp__main { max-width: 440px; }
+  .hero-sp__cloud { position: absolute; background: #fff; border-radius: 999px; opacity: .95; }
+  .hero-sp__cloud::before, .hero-sp__cloud::after { content: ""; position: absolute; background: #fff; border-radius: 50%; }
+  .hero-sp__cloud--a { top: 24%; left: -30px; width: 140px; height: 46px; }
+  .hero-sp__cloud--a::before { width: 64px; height: 64px; top: -36px; left: 28px; }
+  .hero-sp__cloud--a::after { width: 46px; height: 46px; top: -22px; left: 78px; }
+  .hero-sp__cloud--b { bottom: 27%; right: -40px; width: 170px; height: 56px; }
+  .hero-sp__cloud--b::before { width: 80px; height: 80px; top: -46px; left: 30px; }
+  .hero-sp__cloud--b::after { width: 56px; height: 56px; top: -28px; left: 96px; }
+  .hero-sp__main { position: relative; z-index: 2; width: min(92%, 420px); margin: 0 auto; padding: 34px 0 26px; }
+  .hero-sp__bubble { position: absolute; inset: 22px 0 10px; background: #fff; border-radius: 46% 54% 50% 50% / 30% 30% 40% 40%; box-shadow: 0 14px 30px rgba(62,58,57,.10); }
+  .hero-sp__bubble::before, .hero-sp__bubble::after { content: ""; position: absolute; background: #fff; border-radius: 50%; }
+  .hero-sp__bubble::before { width: 44%; height: 26%; top: -9%; left: 6%; }
+  .hero-sp__bubble::after { width: 36%; height: 22%; top: -6%; right: 12%; }
+  .hero-sp__bump { position: absolute; background: #fff; border-radius: 50%; }
+  .hero-sp__bump--1 { width: 38%; height: 20%; bottom: 2%; left: -4%; }
+  .hero-sp__bump--2 { width: 44%; height: 24%; bottom: 0; right: -5%; }
+  .hero-sp__content { position: relative; z-index: 1; text-align: center; padding: 30px 18px 34px; }
+  .hero-sp__logo { width: min(42%, 160px); height: auto; margin: 0 auto 8px; }
+  .hero-sp__tag { display: inline-block; font-family: var(--font-round); font-weight: 800; font-size: .82rem; color: var(--green-d); background: var(--green-l); padding: .3em 1.1em; border-radius: 999px; margin-bottom: 10px; }
+  .hero-sp__tag span { color: var(--pink); }
+  .hero-sp__title { font-family: var(--font-round); font-weight: 900; font-size: clamp(1.5rem, 7vw, 2rem); line-height: 1.4; letter-spacing: .03em; color: #4A4340; }
+  .hero-sp__title em { font-style: normal; color: var(--pink); }
+  .hero-sp__lead { margin-top: 10px; font-size: .9rem; font-weight: 500; color: #4A4340; line-height: 1.8; }
+  .hero-sp__town { display: block; width: 100%; height: auto; margin-top: -8px; position: relative; z-index: 2; }
+}
 
 /* ---------- 3 Badges ---------- */
 .badges { position: relative; z-index: 3; margin-top: 0; padding: 56px 0 20px; }
