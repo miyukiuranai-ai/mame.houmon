@@ -261,6 +261,12 @@ svg { display: block; }
 /* ---------- Message ---------- */
 .message-card { max-width: 880px; margin-inline: auto; background: #fff; border-radius: var(--radius); padding: 44px 48px; border: 3px solid var(--pink-l); box-shadow: var(--shadow); }
 .message-card__title { text-align: center; font-size: 1.4rem; color: var(--pink); margin-bottom: 22px; }
+.message-card__grid { display: grid; grid-template-columns: 240px 1fr; gap: 36px; align-items: start; }
+.message-card__photo { margin: 0; text-align: center; }
+.message-card__photo img { width: 100%; aspect-ratio: 5 / 6; object-fit: cover; border-radius: 18px; border: 4px solid var(--pink-l); box-shadow: var(--shadow-s); background: var(--mint); }
+.message-card__photo figcaption { display: flex; flex-direction: column; margin-top: 12px; font-family: var(--font-round); line-height: 1.3; }
+.message-card__photo small { font-size: .8rem; color: var(--muted); font-weight: 700; }
+.message-card__photo strong { font-size: 1.15rem; color: var(--text); }
 .message-card__body p + p { margin-top: 14px; }
 .message-card__sign { text-align: right; margin-top: 24px !important; display: flex; flex-direction: column; align-items: flex-end; }
 .message-card__sign small { font-size: .85rem; color: var(--muted); }
@@ -422,6 +428,8 @@ svg { display: block; }
   .about-card__points { justify-content: center; }
   .section { padding: 64px 0; }
   .message-card { padding: 30px 24px; }
+  .message-card__grid { grid-template-columns: 1fr; gap: 20px; }
+  .message-card__photo { width: min(60%, 220px); margin-inline: auto; }
   .contact__chara { width: 130px; right: 0; bottom: -6px; }
 }
 @media (max-width: 600px) {
