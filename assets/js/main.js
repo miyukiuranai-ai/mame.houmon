@@ -101,6 +101,25 @@
     });
   }
 
+  /* X タイムライン: 描画されなければフォールバックに切替 */
+  var xTimeline = document.getElementById('xTimeline');
+  var xFallback = document.getElementById('xFallback');
+  if (xTimeline && xFallback) {
+    var xTries = 0;
+    var xCheck = setInterval(function () {
+      xTries++;
+      var iframe = xTimeline.querySelector('iframe');
+      var rendered = iframe && iframe.offsetHeight > 150;
+      if (rendered) { clearInterval(xCheck); return; }
+      if (xTries >= 8) { /* 約8秒待っても出なければ切替 */
+        clearInterval(xCheck);
+        xTimeline.hidden = true;
+        xFallback.hidden = false;
+        if (window.twttr && twttr.widgets && twttr.widgets.load) twttr.widgets.load(xFallback);
+      }
+    }, 1000);
+  }
+
   /* FAQ: 1つ開いたら他を閉じる（任意） */
   var faqs = document.querySelectorAll('.faq__item');
   faqs.forEach(function (d) {
