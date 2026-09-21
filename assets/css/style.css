@@ -280,14 +280,12 @@ svg { display: block; }
 .topic p { text-align: left; font-size: .97rem; }
 .topic .btn { margin-top: 20px; }
 
-/* ---------- X（旧Twitter）最新投稿 ---------- */
-.topics-x { margin-top: 56px; text-align: center; }
-.topics-x__title { font-size: 1.2rem; font-weight: 800; margin-bottom: 22px; }
-.topics-x__embed { max-width: 520px; margin: 0 auto; text-align: left; min-height: 60px; }
-.topics-x__embed .twitter-timeline:not(iframe) { display: block; text-align: center; color: var(--muted); font-size: .9rem; }
-.topics-x__posts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; justify-items: center; max-width: 1080px; margin: 0 auto 24px; }
-.topics-x__posts .twitter-tweet { margin: 0 !important; width: 100%; max-width: 520px; }
-.topics-x__posts blockquote.twitter-tweet:not(.twitter-tweet-rendered) { display: none; }
+/* ---------- X（旧Twitter）最新投稿 / Elfsight ---------- */
+.topics-x { margin-top: 64px; text-align: center; }
+.topics-x__title { display: flex; align-items: center; justify-content: center; gap: .5em; font-size: 1.3rem; font-weight: 800; color: var(--text); }
+.topics-x__ico { width: 1em; height: 1em; fill: currentColor; }
+.topics-x__lead { margin: 8px 0 24px; font-size: .95rem; color: var(--muted); }
+.topics-x .elfsight-app-a67434a6-5e80-458e-a820-9958d24a9ca1 { max-width: 1000px; margin-inline: auto; text-align: left; }
 .btn--dark { background: #1D1F23; box-shadow: 0 6px 0 #000; }
 .btn--dark:hover { background: #2F3238; box-shadow: 0 4px 0 #000; }
 
