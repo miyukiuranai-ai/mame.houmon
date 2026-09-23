@@ -101,6 +101,35 @@
     });
   }
 
+  /* Xフィード: 画像付き投稿の末尾に自動で付く t.co リンク（画像へのリンク）を消す。
+     本文中にご自身で貼ったリンクは、後ろに文字が続くので残る。 */
+  function stripMediaLinks(root) {
+    var items = root.querySelectorAll('.eapps-twitter-feed-posts-item');
+    Array.prototype.forEach.call(items, function (item) {
+      if (item.getAttribute('data-mame-stripped') === '1') return;
+      if (!item.querySelector('[class*="posts-item-media"]')) return;
+      var text = item.querySelector('[class*="posts-item-text"]');
+      if (!text) return;
+      var links = text.querySelectorAll('a[href^="https://t.co/"]');
+      if (!links.length) return;
+      var last = links[links.length - 1];
+      var after = '', n = last.nextSibling;
+      while (n) { after += (n.textContent || ''); n = n.nextSibling; }
+      if (after.trim() !== '') return;
+      while (last.nextSibling) last.parentNode.removeChild(last.nextSibling);
+      last.parentNode.removeChild(last);
+      var tail = text.lastChild;
+      if (tail && tail.nodeType === 3) tail.textContent = tail.textContent.replace(/\s+$/, '');
+      item.setAttribute('data-mame-stripped', '1');
+    });
+  }
+  var xRoot = document.querySelector('.topics-x');
+  if (xRoot && 'MutationObserver' in window) {
+    stripMediaLinks(xRoot);
+    new MutationObserver(function () { stripMediaLinks(xRoot); })
+      .observe(xRoot, { childList: true, subtree: true });
+  }
+
   /* FAQ: 1つ開いたら他を閉じる（任意） */
   var faqs = document.querySelectorAll('.faq__item');
   faqs.forEach(function (d) {
