@@ -286,6 +286,34 @@ svg { display: block; }
 .topics-x__ico { width: 1em; height: 1em; fill: currentColor; }
 .topics-x__lead { margin: 8px 0 24px; font-size: .95rem; color: var(--muted); }
 .topics-x .elfsight-app-a67434a6-5e80-458e-a820-9958d24a9ca1 { max-width: 1000px; margin-inline: auto; text-align: left; }
+/* SP（600px以下）は2列×3段に。Elfsightは幅600px未満だと1列になるため、
+   Shuffle.js の絶対配置を打ち消して CSS Grid で2列に組み替える */
+@media (max-width: 600px) {
+  .topics-x .eapps-twitter-feed-posts-inner {
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 10px !important;
+    overflow: visible !important;
+  }
+  .topics-x .eapps-twitter-feed-posts-item {
+    position: relative !important; top: auto !important; left: auto !important;
+    transform: none !important; width: auto !important; min-width: 0 !important;
+    max-width: none !important; margin: 0 !important;
+    visibility: visible !important; opacity: 1 !important; overflow: hidden !important;
+  }
+  .topics-x .eapps-twitter-feed-posts-item * { min-width: 0 !important; }
+  .topics-x .eapps-twitter-feed-posts-item-text,
+  .topics-x .eapps-twitter-feed-posts-item-text * {
+    overflow-wrap: anywhere !important; word-break: break-word !important; font-size: 13px !important;
+  }
+  .topics-x .eapps-twitter-feed-posts-item-media-container,
+  .topics-x .eapps-twitter-feed-posts-item-media { max-height: 150px !important; }
+  .topics-x .eapps-twitter-feed-posts-item-media img,
+  .topics-x .eapps-twitter-feed-posts-item-media-item { max-height: 150px !important; object-fit: cover !important; }
+  .topics-x [class*="actions-item-share"] .eapps-twitter-feed-posts-item-actions-item-text { display: none !important; }
+  .topics-x .eapps-twitter-feed-posts-item-actions { padding-top: 4px !important; }
+}
 .btn--dark { background: #1D1F23; box-shadow: 0 6px 0 #000; }
 .btn--dark:hover { background: #2F3238; box-shadow: 0 4px 0 #000; }
 
